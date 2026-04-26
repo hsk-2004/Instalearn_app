@@ -11,8 +11,8 @@
   "dependencies": {
     "lucide-react": "^0.454.0",
     "next": "15.0.3",
-    "react": "19.0.0-rc-66855b9609-20241106",
-    "react-dom": "19.0.0-rc-66855b9609-20241106"
+    "react": "rc",
+    "react-dom": "rc"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
