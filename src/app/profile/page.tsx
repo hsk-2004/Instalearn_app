@@ -6,21 +6,29 @@ import {
   Mail, 
   Sparkles, 
   ChevronRight,
-  User
+  User,
+  LayoutGrid,
+  Clock,
+  PlusCircle,
+  AlertCircle,
+  Info,
+  FileText,
+  MessageCircle,
+  LogOut
 } from "lucide-react";
 
 export default function ProfilePage() {
   return (
     <div className="mobile-container flex flex-col pb-24 bg-white">
       {/* Header */}
-      <header className="px-4 py-4 bg-white sticky top-0 z-10 flex items-center justify-between">
-        <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
+      <header className="px-4 py-3 bg-white sticky top-0 z-10 flex items-center justify-between">
+        <h1 className="text-base font-bold text-gray-900">Profile</h1>
         <button className="text-primary-brown">
-          <Settings className="w-6 h-6" />
+          <Settings className="w-5 h-5" />
         </button>
       </header>
 
-      <div className="px-4 pt-2">
+      <div className="px-4 pt-2 overflow-y-auto">
         {/* Profile Card */}
         <div className="bg-[#F5EFE9] rounded-3xl px-6 pt-8 pb-8 flex flex-col items-center text-center mb-6">
           {/* Avatar */}
@@ -75,10 +83,72 @@ export default function ProfilePage() {
         </button>
 
         {/* Divider */}
-        <div className="border-t border-gray-100 mb-4"></div>
+        <div className="border-t border-gray-100 mb-6"></div>
 
-        {/* Actions */}
-        <h3 className="text-2xl font-bold text-gray-900">Actions</h3>
+        {/* Actions Section */}
+        <h3 className="text-lg font-bold text-gray-900 mb-4">Actions</h3>
+        <div className="space-y-1 mb-8">
+          <button className="w-full flex items-center justify-between py-3.5 active:bg-gray-50 transition-colors">
+            <div className="flex items-center">
+              <LayoutGrid className="w-5 h-5 text-primary-brown mr-4" strokeWidth={1.5} />
+              <span className="text-sm text-gray-800">My Contents</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          </button>
+          <button className="w-full flex items-center justify-between py-3.5 active:bg-gray-50 transition-colors">
+            <div className="flex items-center">
+              <Clock className="w-5 h-5 text-primary-brown mr-4" strokeWidth={1.5} />
+              <span className="text-sm text-gray-800">Archive Contents</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          </button>
+          <button className="w-full flex items-center justify-between py-3.5 active:bg-gray-50 transition-colors">
+            <div className="flex items-center">
+              <PlusCircle className="w-5 h-5 text-primary-brown mr-4" strokeWidth={1.5} />
+              <span className="text-sm text-gray-800">New Video</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          </button>
+          <button className="w-full flex items-center justify-between py-3.5 active:bg-gray-50 transition-colors">
+            <div className="flex items-center">
+              <AlertCircle className="w-5 h-5 text-primary-brown mr-4" strokeWidth={1.5} />
+              <span className="text-sm text-gray-800">Raise an Issue</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          </button>
+        </div>
+
+        {/* Help & Support Section */}
+        <h3 className="text-lg font-bold text-gray-900 mb-4">Help & Support</h3>
+        <div className="space-y-1 mb-4">
+          <button className="w-full flex items-center justify-between py-3.5 active:bg-gray-50 transition-colors">
+            <div className="flex items-center">
+              <Info className="w-5 h-5 text-primary-brown mr-4" strokeWidth={1.5} />
+              <span className="text-sm text-gray-800">About Us</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          </button>
+          <button className="w-full flex items-center justify-between py-3.5 active:bg-gray-50 transition-colors">
+            <div className="flex items-center">
+              <FileText className="w-5 h-5 text-primary-brown mr-4" strokeWidth={1.5} />
+              <span className="text-sm text-gray-800">Terms & Conditions</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          </button>
+          <button className="w-full flex items-center justify-between py-3.5 active:bg-gray-50 transition-colors">
+            <div className="flex items-center">
+              <MessageCircle className="w-5 h-5 text-primary-brown mr-4" strokeWidth={1.5} />
+              <span className="text-sm text-gray-800">Feedback</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          </button>
+        </div>
+
+        {/* Logout */}
+        <button className="flex items-center py-3.5 mb-4 active:opacity-70 transition-opacity">
+          <LogOut className="w-5 h-5 text-red-500 mr-4" strokeWidth={1.5} />
+          <span className="text-sm text-red-500 font-medium">Logout</span>
+        </button>
       </div>
 
       <BottomNav activeTab="profile" />

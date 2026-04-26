@@ -116,7 +116,7 @@ export default function UsersPage() {
       </div>
 
       {/* Floating Action Button */}
-      <button className="fixed bottom-28 right-6 w-14 h-14 bg-primary-brown rounded-full shadow-2xl flex items-center justify-center text-white z-20 active:scale-95 transition-transform">
+      <button className="fixed bottom-24 right-6 w-14 h-14 bg-primary-brown rounded-full shadow-2xl flex items-center justify-center text-white z-20 active:scale-95 transition-transform">
         <Plus className="w-8 h-8" />
       </button>
 

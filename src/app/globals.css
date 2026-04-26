@@ -3,27 +3,37 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-brown: #7B2E16;
+  --primary-brown: #7C2D12;
 }
 
 @theme {
   --color-primary-brown: var(--primary-brown);
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
+  width: 100%;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
+
 .mobile-container {
+  width: 100%;
   max-width: 480px;
   margin: 0 auto;
   min-height: 100vh;
   position: relative;
   background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
 
 /* Hide scrollbar for horizontal scroll */
