@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader } from "lucide-react";
 import { api } from "@/lib/api";
 import { useRouter } from "next/navigation";
 
@@ -239,9 +239,21 @@ export default function LoginPage() {
             fontFamily: "Inter, sans-serif",
             textAlign: "center",
             cursor: loading ? "not-allowed" : "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
+            transition: "all 0.3s ease",
           }}
         >
-          {loading ? "Logging in..." : "Login"}
+          {loading ? (
+            <>
+              <Loader size={18} className="animate-spin" />
+              Logging in...
+            </>
+          ) : (
+            "Login"
+          )}
         </button>
       </form>
     </div>

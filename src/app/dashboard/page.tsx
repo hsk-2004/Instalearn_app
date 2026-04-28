@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import BottomNav from "@/components/BottomNav";
 import { 
   Bell, 
@@ -13,6 +15,26 @@ import {
 } from "lucide-react";
 
 export default function Home() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem('access_token');
+    if (!token) {
+      router.push('/login');
+      return;
+    }
+    setLoading(false);
+  }, [router]);
+
+  if (loading) {
+    return (
+      <div className="mobile-container flex items-center justify-center min-h-screen bg-white">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-brown"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="mobile-container flex flex-col pb-24 bg-white" style={{ fontFamily: 'var(--font-inter)' }}>
       {/* Header */}

@@ -67,7 +67,7 @@ export default function LandingPage() {
 
         {/* ContinueButton — centered, bottom ~1/20 */}
         <Link
-          href="/dashboard"
+          href="/login"
           className="absolute left-0 right-0 flex justify-center items-center active:scale-95 transition-transform"
           style={{ bottom: "5%" }}
         >
