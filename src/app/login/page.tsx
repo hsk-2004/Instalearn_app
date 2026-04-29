@@ -33,7 +33,7 @@ export default function LoginPage() {
         
         // Success feedback
         console.log("Login successful", res.data);
-        router.push('/dashboard');
+        router.push('/home');
       } else {
         setError(res?.message || "Invalid credentials. Please try again.");
       }
