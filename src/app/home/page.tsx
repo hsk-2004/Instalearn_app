@@ -55,18 +55,24 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
           {/* Edit button: top: 8, right: 12, padding: 8, borderRadius: 20, icon 18px */}
-          <button className="absolute top-[8px] right-[12px] p-[8px] bg-white rounded-[20px] shadow-[0_2px_4px_rgba(0,0,0,0.15)] z-10">
+          <button 
+            onClick={() => router.push('/profile/edit')}
+            className="absolute top-[8px] right-[12px] p-[8px] bg-white rounded-[20px] shadow-[0_2px_4px_rgba(0,0,0,0.15)] z-10 active:scale-95 transition-transform"
+          >
             {/* Edit3 icon */}
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-brown"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
           </button>
         </div>
 
         {/* Profile Info - columnGap: 12, paddingHorizontal: 12, paddingBottom: 12, height: 80 */}
-        <div className="bg-white px-[12px] pb-[12px] relative h-[80px] flex flex-row items-start gap-[12px]">
+        <div 
+          onClick={() => router.push('/profile/edit')}
+          className="bg-white px-[12px] pb-[12px] relative h-[80px] flex flex-row items-start gap-[12px] cursor-pointer active:opacity-90 transition-opacity"
+        >
           {/* Avatar Container: translateY -50px */}
           <div className="relative -mt-[50px]">
             {/* Image: w: 100, h: 100, borderRadius: 50, borderWidth: 3 */}
-            <div className="w-[100px] h-[100px] rounded-[50px] border-[3px] border-white bg-gray-300 overflow-hidden flex items-center justify-center">
+            <div className="w-[100px] h-[100px] rounded-[50px] border-[3px] border-white bg-gray-300 overflow-hidden flex items-center justify-center shadow-md">
               <img 
                 src="/avatar.png" 
                 alt="Profile" 
@@ -77,9 +83,9 @@ export default function Home() {
               />
             </div>
             {/* Camera: bottom: 6, right: 6, padding: 8, borderRadius: 20, icon 18px */}
-            <button className="absolute bottom-[6px] right-[6px] bg-white p-[8px] rounded-[20px] shadow-[0_2px_4px_rgba(0,0,0,0.15)] active:opacity-70">
+            <div className="absolute bottom-[6px] right-[6px] bg-white p-[8px] rounded-[20px] shadow-[0_2px_4px_rgba(0,0,0,0.15)] flex items-center justify-center">
               <Camera width="18" height="18" className="text-primary-brown" />
-            </button>
+            </div>
           </div>
           
           {/* Text Container: mt 10px */}
@@ -97,7 +103,11 @@ export default function Home() {
         {/* Header: paddingHorizontal: 16, marginBottom: 6 */}
         <div className="flex items-center justify-between px-[16px] mb-[6px]">
           <h3 className="text-[16px] font-bold text-gray-900">Insights</h3>
-          <button className="flex items-center gap-[6px] text-primary-brown active:opacity-70">
+          <button
+            type="button"
+            onClick={() => router.push("/insights")}
+            className="flex items-center gap-[6px] text-primary-brown active:opacity-70"
+          >
             <BarChart2 size={16} />
             <span className="text-[14px] font-medium">Insights</span>
           </button>
@@ -145,7 +155,11 @@ export default function Home() {
         {/* Header: px: 16, mb: 6 */}
         <div className="flex items-center justify-between px-[16px] mb-[6px]">
           <h3 className="text-[16px] font-bold text-gray-900">Most Viewed</h3>
-          <button className="flex items-center gap-[6px] text-primary-brown active:opacity-70">
+          <button
+            type="button"
+            onClick={() => router.push("/explore")}
+            className="flex items-center gap-[6px] text-primary-brown active:opacity-70"
+          >
             <BarChart2 size={16} />
             <span className="text-[14px] font-medium">View All</span>
           </button>
@@ -154,7 +168,11 @@ export default function Home() {
         {/* List: px: 12, pt: 8 */}
         <div className="flex overflow-x-auto no-scrollbar px-[12px] pt-[8px] pb-4">
           {/* Card wrapper: mr: 12 */}
-          <div className="flex-shrink-0 mr-[12px] active:opacity-85 cursor-pointer">
+          <button
+            type="button"
+            onClick={() => router.push("/home/video/new-video")}
+            className="flex-shrink-0 mr-[12px] active:opacity-85 cursor-pointer text-left"
+          >
             {/* videoCard: width: 120, height: 213, borderRadius: 14, bg: #000, elevation: 6 */}
             <div className="w-[120px] h-[213px] rounded-[14px] bg-black overflow-hidden relative shadow-[0_6px_8px_rgba(0,0,0,0.15)]">
               <img 
@@ -181,7 +199,7 @@ export default function Home() {
                 <span className="text-[12px] text-white font-semibold">3</span>
               </div>
             </div>
-          </div>
+          </button>
         </div>
       </section>
 
@@ -191,7 +209,11 @@ export default function Home() {
         <h3 className="text-[16px] font-semibold text-gray-900 mb-[12px]">Recent Videos</h3>
         
         {/* Card: flexDirection: row, borderRadius: 12, mb: 12, borderWidth: 0.5 */}
-        <div className="flex flex-row rounded-[12px] mb-[12px] border-[0.5px] border-gray-200 bg-white overflow-hidden active:opacity-85 cursor-pointer shadow-sm">
+        <button
+          type="button"
+          onClick={() => router.push("/home/video/new-video")}
+          className="flex flex-row rounded-[12px] mb-[12px] border-[0.5px] border-gray-200 bg-white overflow-hidden active:opacity-85 cursor-pointer shadow-sm text-left w-full"
+        >
           {/* thumbnailWrap: width: 120, height: 90, bg: #000 */}
           <div className="w-[120px] h-[90px] bg-black relative flex-shrink-0">
             <img 
@@ -231,7 +253,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </section>
 
       {/* Floating Action Button */}

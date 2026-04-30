@@ -2,21 +2,30 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v
 
 export async function apiRequest<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
   const url = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const fullUrl = `${BASE_URL}${url}`;
   
-  const response = await fetch(`${BASE_URL}${url}`, {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-  });
+  try {
+    const response = await fetch(fullUrl, {
+      ...options,
+      headers: {
+        'Content-Type': 'application/json',
+        ...options.headers,
+      },
+    });
 
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.message || `API Request Failed: ${response.statusText}`);
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || `API Error (${response.status}): ${response.statusText}`);
+    }
+
+    return response.json();
+  } catch (error: any) {
+    console.error(`API Fetch Error [${fullUrl}]:`, error);
+    if (error.message === 'Failed to fetch') {
+      throw new Error(`Connection failed: The server at ${BASE_URL} could not be reached. Please check your network or API URL.`);
+    }
+    throw error;
   }
-
-  return response.json();
 }
 
 // Helper methods

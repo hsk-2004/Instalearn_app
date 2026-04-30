@@ -1,3 +1,6 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import BottomNav from "@/components/BottomNav";
 import { 
   Settings, 
@@ -18,12 +21,16 @@ import {
 } from "lucide-react";
 
 export default function ProfilePage() {
+  const router = useRouter();
   return (
     <div className="mobile-container flex flex-col pb-24 bg-white">
       {/* Header */}
       <header className="px-4 py-3 bg-white sticky top-0 z-10 flex items-center justify-between">
         <h1 className="text-base font-bold text-gray-900">Profile</h1>
-        <button className="text-primary-brown">
+        <button 
+          onClick={() => router.push('/profile/edit')}
+          className="text-primary-brown p-2 -mr-2 active:bg-gray-100 rounded-full transition-colors"
+        >
           <Settings className="w-5 h-5" />
         </button>
       </header>
